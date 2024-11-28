@@ -1,0 +1,114 @@
+Script started on 2024-11-28 12:00:45+02:00 [TERM="xterm-256color" TTY="/dev/pts/10" COLUMNS="104" LINES="54"]
+
+ [32;01m*[0m [35;01mkeychain [0m[36m2.8.5[0m ~ [32;01mhttp://www.funtoo.org[0m
+ [32;01m*[0m Found existing ssh-agent: [36m568[0m
+ [32;01m*[0m Known ssh key: [36m/home/spurtilo/.ssh/id_rsa[0m
+
+[?2004h]0;spurtilo@SIMONKONE1: todo-backend$ docker compose -f docker-compose.dev.yml up -d
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker compose -f docker-compose.dev.yml up -d
+[?2004l
+[1A[1B[0G[?25l[+] Running 0/0
+ [33m⠋[0m Network todo-backend_default  Creating                                                          [34m0.0s [0m
+[?25h[1A[1A[0G[?25l[34m[+] Running 1/1[0m
+ [32m✔[0m Network todo-backend_default    [32mCreated[0m                                                         [34m0.1s [0m
+ [33m⠋[0m Container todo-backend-mongo-1  Creating                                                        [34m0.1s [0m
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ [32m✔[0m Network todo-backend_default    [32mCreated[0m                                                         [34m0.1s [0m
+ [33m⠙[0m Container todo-backend-mongo-1  Creating                                                        [34m0.2s [0m
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ [32m✔[0m Network todo-backend_default    [32mCreated[0m                                                         [34m0.1s [0m
+ [33m⠹[0m Container todo-backend-mongo-1  Starting                                                        [34m0.3s [0m
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ [32m✔[0m Network todo-backend_default    [32mCreated[0m                                                         [34m0.1s [0m
+ [33m⠸[0m Container todo-backend-mongo-1  Starting                                                        [34m0.4s [0m
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ [32m✔[0m Network todo-backend_default    [32mCreated[0m                                                         [34m0.1s [0m
+ [33m⠼[0m Container todo-backend-mongo-1  Starting                                                        [34m0.5s [0m
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ [32m✔[0m Network todo-backend_default    [32mCreated[0m                                                         [34m0.1s [0m
+ [33m⠴[0m Container todo-backend-mongo-1  Starting                                                        [34m0.6s [0m
+[?25h[1A[1A[1A[0G[?25l[34m[+] Running 2/2[0m
+ [32m✔[0m Network todo-backend_default    [32mCreated[0m                                                         [34m0.1s [0m
+ [32m✔[0m Container todo-backend-mongo-1  [32mStarted[0m                                                         [34m0.7s [0m
+[?25h[?2004h]0;spurtilo@SIMONKONE1: ~/fullstackopen-containers/todo-app/todo-backend[38;5;34mspurtilo@SIMONKONE1[38;5;33m:[01;34mtodo-backend[00m$ [38;2;255;255;255m[7mdocker ps[27mdocker ps
+[?2004l
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                     NAMES
+e9f953465c2e   mongo     "docker-entrypoint.s…"   6 seconds ago   Up 5 seconds   0.0.0.0:3456->27017/tcp   todo-backend-mongo-1
+[?2004h]0;spurtilo@SIMONKONE1: ~/fullstackopen-containers/todo-app/todo-backend[38;5;34mspurtilo@SIMONKONE1[38;5;33m:[01;34mtodo-backend[00m$ [38;2;255;255;255m[7mdocker exec -it todo-backend-mongo-1 mongosh -u root -p example[27m
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker exec -it todo-backend-mongo-1 mongosh -u root -p example
+[?2004l
+]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	67483f6a4e87d8fb07c1c18b
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.3[0m
+Using MongoDB:		8.0.3
+[1m[33mUsing Mongosh[0m:		2.3.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+[1G[0J [1G[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2024-11-28T10:01:00.937+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2024-11-28T10:01:01.816+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2024-11-28T10:01:01.816+00:00: We suggest setting the contents of sysfsFile to 0.
+   2024-11-28T10:01:01.816+00:00: Your system has glibc support for rseq built in, which is not yet supported by tcmalloc-google and has critical performance implications. Please set the environment variable GLIBC_TUNABLES=glibc.pthread.rseq=0
+   2024-11-28T10:01:01.816+00:00: vm.max_map_count is too low
+   2024-11-28T10:01:01.816+00:00: We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.
+[1m[33m------[0m
+
+[1G[0Jtest> show dbs
+
+[1madmin[0m         100.00 KiB
+[1mconfig[0m        108.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   72.00 KiB
+[1G[0Jtest> [7Guse the_database
+
+switched to db the_database
+[1G[0Jthe_database> [15Gshow collections
+
+[1mtodos[0m
+[1G[0Jthe_database> [15Gdb.todos.find({})
+
+[
+  {
+    _id: ObjectId([32m'67482d1c9b864fdb3fc1c18c'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'67482d1c9b864fdb3fc1c18d'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gdb.todos.insertOne({text: "Increase the number of tools in my tool belt", done: false})
+
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId([32m'67483f854e87d8fb07c1c18c'[39m)
+}
+[1G[0Jthe_database> [15Gdb.todos.find({})
+
+[
+  {
+    _id: ObjectId([32m'67482d1c9b864fdb3fc1c18c'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'67482d1c9b864fdb3fc1c18d'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'67483f854e87d8fb07c1c18c'[39m),
+    text: [32m'Increase the number of tools in my tool belt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gexit
+
+[?2004h]0;spurtilo@SIMONKONE1: ~/fullstackopen-containers/todo-app/todo-backend[38;5;34mspurtilo@SIMONKONE1[38;5;33m:[01;34mtodo-backend[00m$ [38;2;255;255;255mexit
+[?2004l
+exit
+
+Script done on 2024-11-28 12:01:51+02:00 [COMMAND_EXIT_CODE="0"]
