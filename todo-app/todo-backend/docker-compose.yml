@@ -1,5 +1,5 @@
 services:
-  todo-backend:
+  backend:
     image: todo-backend
     build: .
     ports:
