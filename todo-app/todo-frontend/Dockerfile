@@ -1,7 +1,8 @@
 FROM node:20 AS base
 USER node
 ENV VITE_BACKEND_URL=http://localhost:3000/
-WORKDIR /home/node
+RUN mkdir -p /home/node/app
+WORKDIR /home/node/app
 
 FROM base AS test-stage
 ENV NODE_ENV=test
@@ -16,5 +17,5 @@ RUN npm run build
 
 FROM nginx:1.25-alpine AS production-stage
 ENV NODE_ENV=production
-COPY --from=build-stage home/node/dist /usr/share/nginx/html
+COPY --from=build-stage home/node/app/dist /usr/share/nginx/html
 
