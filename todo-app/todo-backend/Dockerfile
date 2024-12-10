@@ -10,7 +10,7 @@ COPY --chown=node:node . /usr/src/app
 
 RUN npm ci --omit=dev
 
-ENV DEBUG=playground:*
+ENV DEBUG=todo-backend:*
 
 USER node
 
