@@ -1,6 +1,6 @@
-FROM node:20 AS base
+FROM node:20.9.0-bullseye-slim AS base
 USER node
-ENV VITE_BACKEND_URL=http://localhost:3000/
+ENV VITE_BACKEND_URL=http://localhost:8080/api
 RUN mkdir -p /home/node/app
 WORKDIR /home/node/app
 
