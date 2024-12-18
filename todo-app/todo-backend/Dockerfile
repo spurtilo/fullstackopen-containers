@@ -4,9 +4,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends dumb-init
 
 ENV NODE_ENV=production
 
-WORKDIR /usr/src/app
+RUN mkdir -p /home/node/app
 
-COPY --chown=node:node . /usr/src/app
+WORKDIR /home/node/app
+
+COPY --chown=node:node . /home/node/app
 
 RUN npm ci --omit=dev
 

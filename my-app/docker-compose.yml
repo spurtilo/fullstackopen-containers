@@ -1,0 +1,31 @@
+services:
+  app:
+    image: bloglist-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/home/node/app
+    container_name: bloglist-frontend
+
+  server:
+    image: bloglist-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/home/node/app
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+    container_name: bloglist-backend
+
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: bloglist-reverse-proxy
+    depends_on:
+      - app
+      - server
